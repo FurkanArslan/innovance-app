@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Home from "./component/home/Home";
@@ -11,6 +10,7 @@ import Pricing from "./component/pricing/pricing";
 import Copyright from "./Copyright";
 import Gallery from "./component/gallery/galary";
 import SignIn from "./component/sign-in/SignIn";
+import SignUp from "./component/sign-up/SignUp";
 
 class App extends Component {
     render() {
@@ -53,6 +53,7 @@ class App extends Component {
                     </AppBar>
                     <Routes>
                         <Route exact path='/' element={< SignIn/>}></Route>
+                        <Route exact path='/signUp' element={< SignUp/>}></Route>
                         <Route exact path='/pricing' element={< Pricing/>}></Route>
                         <Route exact path='/gallery' element={< Gallery/>}></Route>
                         <Route exact path='/home' element={< Home/>}></Route>

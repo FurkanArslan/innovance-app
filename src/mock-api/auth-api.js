@@ -6,8 +6,6 @@ let usersApi = mockApi.components.examples.auth_users.value;
 const authServiceConfig = {
     signIn: 'api/auth/sign-in',
     signUp: 'api/auth/sign-up',
-    accessToken: 'api/auth/access-token',
-    updateUser: 'api/auth/user/update',
 };
 
 export default authServiceConfig;
@@ -46,5 +44,45 @@ mock.onGet(authServiceConfig.signIn).reply(async (config) => {
         return [200, response];
     }
 
+    return [200, {error}];
+});
+
+mock.onPost(authServiceConfig.signUp).reply((request) => {
+    const data = JSON.parse(request.data);
+    const {displayName, password, email} = data;
+    const isEmailExists = usersApi.find((_user) => _user.data.email === email);
+    const error = [];
+
+    if (isEmailExists) {
+        error.push({
+            type: 'email',
+            message: 'The email address is already in use',
+        });
+    }
+
+    if (error.length === 0) {
+        const newUser = {
+            uuid: '1234',
+            from: 'custom-db',
+            password,
+            role: 'admin',
+            data: {
+                displayName,
+                email,
+            },
+        };
+
+        usersApi = [...usersApi, newUser];
+
+        const user = {...newUser};
+
+        delete user.password;
+
+        const response = {
+            user,
+        };
+
+        return [200, response];
+    }
     return [200, {error}];
 });

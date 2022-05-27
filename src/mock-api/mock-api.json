@@ -47,6 +47,43 @@
                 ]
             },
             "parameters": []
+        },
+        "/auth/sign-up": {
+            "get": {
+                "summary": "Sign Up",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/auth_user"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "uuid": "string",
+                                            "from": "string",
+                                            "password": "string",
+                                            "role": "string",
+                                            "data": {
+                                                "displayName": "string",
+                                                "email": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "auth_signUp",
+                "description": "Retrieve user.",
+                "tags": [
+                    "auth"
+                ]
+            },
+            "parameters": []
         }
     },
     "components": {
