@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# Getting Started with Innovance Dashboard Demo App
+
+This repo is created as part of the innovation demo project. It is a small dashboard web application consisting of 5 pages. 
+
+Here are the pages:
+
+1- sign in page (https://marvelous-marshmallow-259aa1.netlify.app/): User login page. It uses mock api in the background. 
+User information defined in the current system:
+e-mail: bm.furkanarslan@gmail.com
+password: admin
+
+2- sign-up page (https://marvelous-marshmallow-259aa1.netlify.app/signUp) A new user creation page. 
+A post request is made to the background. But mock api is used.
+
+3- home page: (https://marvelous-marshmallow-259aa1.netlify.app/home) Home page is a general dashboard home page 
+consisting of dummy data. It is possible to switch between other pages with using navbar.
+
+4- Pricing page: (https://marvelous-marshmallow-259aa1.netlify.app/pricing) dummy price display page.
+
+5- Gallery page: (https://marvelous-marshmallow-259aa1.netlify.app/gallery) Dummy gallery page with 3 random pictures.
+
+I tried to use all the concepts requested from me. There are some shortcomings in CSS. Sorry for them :)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
