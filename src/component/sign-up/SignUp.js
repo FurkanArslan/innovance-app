@@ -49,7 +49,7 @@ export default function SignUp() {
         resolver: yupResolver(schema),
     });
 
-    const { isValid, dirtyFields, errors } = formState;
+    const { isValid, errors } = formState;
 
     function onSubmit({displayName, password, email}) {
         return new Promise((resolve, reject) => {
