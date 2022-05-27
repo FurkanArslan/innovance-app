@@ -17,6 +17,8 @@ import axios from "axios";
 import authServiceConfig from "../../mock-api/auth-api";
 import './singIn.css';
 import Grid from "@mui/material/Grid";
+import {useContext} from "react";
+import authContext from "../../authContext";
 
 /**
  * Form Validation Schema
@@ -45,6 +47,7 @@ function SignInContent() {
     });
 
     const {isValid, errors} = formState;
+    const { setAuthenticated, setUser } = useContext(authContext);
 
     function onSubmit({email, password}) {
         return new Promise((resolve, reject) => {
@@ -55,6 +58,9 @@ function SignInContent() {
                 },
             }).then((response) => {
                 if (response.data.user) {
+                    setAuthenticated(true);
+                    setUser(response.data.user);
+
                     navigate('/home');
                 } else {
                     response.data.error.forEach((error) => {

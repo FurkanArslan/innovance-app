@@ -1,8 +1,5 @@
-import React, {Component} from 'react';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import React, {useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import GlobalStyles from "@mui/material/GlobalStyles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Home from "./component/home/Home";
@@ -12,45 +9,21 @@ import Gallery from "./component/gallery/galary";
 import SignIn from "./component/sign-in/SignIn";
 import SignUp from "./component/sign-up/SignUp";
 
-class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <GlobalStyles styles={{ul: {margin: 0, padding: 0, listStyle: 'none'}}}/>
-                <CssBaseline/>
+import authContext from "./authContext";
+import NavigationBar from "./NavigationBar";
+
+function App() {
+    const [authenticated, setAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+
+    return (
+        <BrowserRouter>
+            <GlobalStyles styles={{ul: {margin: 0, padding: 0, listStyle: 'none'}}}/>
+            <CssBaseline/>
+
+            <authContext.Provider value={{authenticated, setAuthenticated, user, setUser}}>
                 <div className="App">
-                    <AppBar
-                        position="static"
-                        color="primary"
-                        elevation={0}
-                        sx={{borderBottom: (theme) => `1px solid ${theme.palette.divider}`}}
-                    >
-                        <Toolbar sx={{flexWrap: 'wrap'}}>
-                            <Typography variant="h6" color="inherit" noWrap sx={{flexGrow: 1}}>
-                                Furkan Arslan
-                            </Typography>
-                            <nav>
-                                <Link
-                                    className="nav-link"
-                                    to="/home"
-                                >
-                                    Home
-                                </Link>
-                                <Link
-                                    className="nav-link"
-                                    to="/pricing"
-                                >
-                                    Pricing
-                                </Link>
-                                <Link
-                                    className="nav-link"
-                                    to="/gallery"
-                                >
-                                    Gallery
-                                </Link>
-                            </nav>
-                        </Toolbar>
-                    </AppBar>
+                    <NavigationBar isLoggedIn={authenticated} user={user}/>
                     <Routes>
                         <Route exact path='/' element={< SignIn/>}></Route>
                         <Route exact path='/signUp' element={< SignUp/>}></Route>
@@ -59,11 +32,12 @@ class App extends Component {
                         <Route exact path='/home' element={< Home/>}></Route>
                     </Routes>
 
-                    <Copyright />
+                    <Copyright/>
                 </div>
-            </BrowserRouter>
-        );
-    }
+            </authContext.Provider>
+
+        </BrowserRouter>
+    );
 }
 
 export default App;

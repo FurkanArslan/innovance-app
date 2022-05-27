@@ -16,7 +16,7 @@ export default function NavigationBar(props) {
                 >
                     <Toolbar sx={{flexWrap: 'wrap'}}>
                         <Typography variant="h6" color="inherit" noWrap sx={{flexGrow: 1}}>
-                            Furkan Arslan
+                            {props.user.data.displayName}
                         </Typography>
                         <nav>
                             <Link

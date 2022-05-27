@@ -17,6 +17,8 @@ import axios from "axios";
 import authServiceConfig from "../../mock-api/auth-api";
 import {Checkbox, FormControl, FormControlLabel, FormHelperText} from "@mui/material";
 import Grid from "@mui/material/Grid";
+import {useContext} from "react";
+import authContext from "../../authContext";
 
 /**
  * Form Validation Schema
@@ -50,6 +52,7 @@ export default function SignUp() {
     });
 
     const { isValid, errors } = formState;
+    const { setAuthenticated, setUser } = useContext(authContext);
 
     function onSubmit({displayName, password, email}) {
         return new Promise((resolve, reject) => {
@@ -59,6 +62,9 @@ export default function SignUp() {
                 email,
             }).then((response) => {
                 if (response.data.user) {
+                    setAuthenticated(true);
+                    setUser(response.data.user);
+
                     navigate('/home');
                 } else {
                     response.data.error.forEach((error) => {
