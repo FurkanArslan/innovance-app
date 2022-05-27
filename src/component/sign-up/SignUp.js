@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,6 +16,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import axios from "axios";
 import authServiceConfig from "../../mock-api/auth-api";
 import {Checkbox, FormControl, FormControlLabel, FormHelperText} from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 /**
  * Form Validation Schema
@@ -199,6 +200,14 @@ export default function SignUp() {
                     >
                         Create your free account
                     </Button>
+
+                    <Grid container>
+                        <Grid item>
+                            <Link to="/">
+                                {"Do you have account? Sign In"}
+                            </Link>
+                        </Grid>
+                    </Grid>
                 </form>
             </Box>
         </Container>
