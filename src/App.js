@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -10,11 +10,12 @@ import Home from "./component/home/Home";
 import Pricing from "./component/pricing/pricing";
 import Copyright from "./Copyright";
 import Gallery from "./component/gallery/galary";
+import SignIn from "./component/sign-in/SignIn";
 
 class App extends Component {
     render() {
         return (
-            <Router>
+            <BrowserRouter>
                 <GlobalStyles styles={{ul: {margin: 0, padding: 0, listStyle: 'none'}}}/>
                 <CssBaseline/>
                 <div className="App">
@@ -31,7 +32,7 @@ class App extends Component {
                             <nav>
                                 <Link
                                     className="nav-link"
-                                    to="/"
+                                    to="/home"
                                 >
                                     Home
                                 </Link>
@@ -48,20 +49,18 @@ class App extends Component {
                                     Gallery
                                 </Link>
                             </nav>
-                            <Button href="#" variant="outlined" sx={{my: 1, mx: 1.5}}>
-                                Login
-                            </Button>
                         </Toolbar>
                     </AppBar>
                     <Routes>
-                        <Route exact path='/' element={< Home/>}></Route>
+                        <Route exact path='/' element={< SignIn/>}></Route>
                         <Route exact path='/pricing' element={< Pricing/>}></Route>
                         <Route exact path='/gallery' element={< Gallery/>}></Route>
+                        <Route exact path='/home' element={< Home/>}></Route>
                     </Routes>
 
                     <Copyright />
                 </div>
-            </Router>
+            </BrowserRouter>
         );
     }
 }

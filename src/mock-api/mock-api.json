@@ -1,0 +1,3079 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mock API",
+        "version": "1.0.0",
+        "description": "Mock API Open API Definitions"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api"
+        }
+    ],
+    "paths": {
+        "/auth/sign-in": {
+            "get": {
+                "summary": "Sign In",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/auth_user"
+                                },
+                                "examples": {
+                                    "example-1": {
+                                        "value": {
+                                            "uuid": "string",
+                                            "from": "string",
+                                            "password": "string",
+                                            "role": "string",
+                                            "data": {
+                                                "displayName": "string",
+                                                "email": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "auth_signIn",
+                "description": "Retrieve user.",
+                "tags": [
+                    "auth"
+                ]
+            },
+            "parameters": []
+        }
+    },
+    "components": {
+        "schemas": {
+            "contact": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "Dejesus Michael": {
+                        "id": "cd5fa417-b667-482d-b208-798d9da3213c",
+                        "avatar": "assets/images/avatars/male-01.jpg",
+                        "background": "assets/images/cards/14-640x480.jpg",
+                        "name": "Dejesus Michael",
+                        "emails": [
+                            {
+                                "email": "dejesusmichael@mail.org",
+                                "label": "Personal"
+                            },
+                            {
+                                "email": "michael.dejesus@vitricomp.io",
+                                "label": "Work"
+                            }
+                        ],
+                        "phoneNumbers": [
+                            {
+                                "country": "bs",
+                                "phoneNumber": "984 531 2468",
+                                "label": "Mobile"
+                            },
+                            {
+                                "country": "bs",
+                                "phoneNumber": "806 470 2693",
+                                "label": "Work"
+                            }
+                        ],
+                        "title": "Track Service Worker",
+                        "company": "Vitricomp",
+                        "birthday": "1975-01-10T12:00:00.000Z",
+                        "address": "279 Independence Avenue, Calvary, Guam, PO4127",
+                        "notes": "<p>Do incididunt cillum duis eu pariatur enim proident minim officia amet proident consequat consequat qui consequat magna magna occaecat aliquip culpa pariatur velit nisi nostrud irure eu ullamco exercitation sint.</p><p>Cillum deserunt laborum laborum quis nisi enim et aliquip labore excepteur in excepteur labore amet in ipsum ipsum nostrud deserunt lorem nisi voluptate dolor minim enim ut eu cupidatat enim.</p>",
+                        "tags": [
+                            "56ddbd47-4078-4ddd-8448-73c5e88d5f59"
+                        ]
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "readOnly": true
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "minLength": 1,
+                        "nullable": true
+                    },
+                    "background": {
+                        "type": "string",
+                        "minLength": 1,
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "emails": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            }
+                        }
+                    },
+                    "phoneNumbers": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "country": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "phoneNumber": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            }
+                        }
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "company": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "minLength": 1,
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "string",
+                        "minLength": 1,
+                        "nullable": true
+                    },
+                    "notes": {
+                        "type": "string",
+                        "minLength": 1,
+                        "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "title": "Contact"
+            },
+            "country": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "Afghanistan": {
+                        "id": "19430ee3-b0fe-4987-a7c8-74453ad5504d",
+                        "iso": "af",
+                        "name": "Afghanistan",
+                        "code": "+93",
+                        "flagImagePos": "-1px -3180px"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "readOnly": true
+                    },
+                    "iso": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "code": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "flagImagePos": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "title": "Country"
+            },
+            "tag": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "Work": {
+                        "id": "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
+                        "title": "Work"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "readOnly": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "title": "Tag"
+            },
+            "task": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "f65d517a-6f69-4c88-81f5-416f47405ce1",
+                        "type": "section",
+                        "title": "Company internal application v2.0.0",
+                        "notes": "Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit.",
+                        "completed": false,
+                        "dueDate": "2017-10-18T13:03:37.943Z",
+                        "priority": 1,
+                        "tags": [
+                            "91658b8a-f382-4b0c-a53f-e9390351c2c5",
+                            "51483dd3-cb98-4400-9128-4bd66b455807"
+                        ],
+                        "assignedTo": null,
+                        "subTasks": [
+                            {
+                                "id": "2768a969-a316-449b-bf82-93cff4252cbf",
+                                "title": "Minim irure fugiat ullamco irure",
+                                "completed": false
+                            },
+                            {
+                                "id": "6cc5ac8f-3a02-47e6-ad4b-0bd0222e2717",
+                                "title": "Sint velit ex in adipisicing fugiat",
+                                "completed": false
+                            }
+                        ],
+                        "order": 0
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "notes": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "completed": {
+                        "type": "boolean"
+                    },
+                    "dueDate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "priority": {
+                        "type": "number"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "assignedTo": {},
+                    "subTasks": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "completed": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "title",
+                                "completed"
+                            ]
+                        }
+                    },
+                    "order": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "id",
+                    "type",
+                    "title",
+                    "notes",
+                    "completed",
+                    "priority",
+                    "tags",
+                    "subTasks",
+                    "order"
+                ]
+            },
+            "chat_message": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "e6b2b82f-b199-4a60-9696-5f3e40d2715d",
+                        "chatId": "",
+                        "contactId": "me",
+                        "value": "Hi!",
+                        "createdAt": "2022-01-05T15:56:48.732Z"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "chatId": {
+                        "type": "string"
+                    },
+                    "contactId": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "chatId",
+                    "contactId",
+                    "value",
+                    "createdAt"
+                ]
+            },
+            "chat_chat": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "ff6bc7f1-449a-4419-af62-b89ce6cae0aa",
+                        "contactId": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
+                        "unreadCount": 2,
+                        "muted": false,
+                        "lastMessage": "See you tomorrow!",
+                        "lastMessageAt": "26/04/2021"
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "contactId": {
+                        "type": "string"
+                    },
+                    "unreadCount": {
+                        "type": "number"
+                    },
+                    "muted": {
+                        "type": "boolean"
+                    },
+                    "lastMessage": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "lastMessageAt": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "contactId",
+                    "unreadCount",
+                    "muted",
+                    "lastMessage",
+                    "lastMessageAt"
+                ]
+            },
+            "chat_contact": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "cd5fa417-b667-482d-b208-798d9da3213c",
+                        "avatar": "assets/images/avatars/male-01.jpg",
+                        "name": "Dejesus Michael",
+                        "about": "Hi there! I'm using FuseChat.",
+                        "details": {
+                            "emails": [
+                                {
+                                    "email": "dejesusmichael@mail.org",
+                                    "label": "Personal"
+                                },
+                                {
+                                    "email": "michael.dejesus@vitricomp.io",
+                                    "label": "Work"
+                                }
+                            ],
+                            "phoneNumbers": [
+                                {
+                                    "country": "bs",
+                                    "phoneNumber": "984 531 2468",
+                                    "label": "Mobile"
+                                },
+                                {
+                                    "country": "bs",
+                                    "phoneNumber": "806 470 2693",
+                                    "label": "Work"
+                                }
+                            ],
+                            "title": "Track Service Worker",
+                            "company": "Vitricomp",
+                            "birthday": "1975-01-10T12:00:00.000Z",
+                            "address": "279 Independence Avenue, Calvary, Guam, PO4127"
+                        },
+                        "attachments": {
+                            "media": [
+                                "assets/images/cards/01-320x200.jpg",
+                                "assets/images/cards/02-320x200.jpg",
+                                "assets/images/cards/03-320x200.jpg",
+                                "assets/images/cards/04-320x200.jpg",
+                                "assets/images/cards/05-320x200.jpg",
+                                "assets/images/cards/06-320x200.jpg",
+                                "assets/images/cards/07-320x200.jpg",
+                                "assets/images/cards/08-320x200.jpg"
+                            ],
+                            "docs": [],
+                            "links": []
+                        }
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "about": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "details": {
+                        "type": "object",
+                        "required": [
+                            "emails",
+                            "phoneNumbers",
+                            "company",
+                            "birthday",
+                            "address"
+                        ],
+                        "properties": {
+                            "emails": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "email",
+                                        "label"
+                                    ]
+                                }
+                            },
+                            "phoneNumbers": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "minItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "country": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "phoneNumber": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "label": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "country",
+                                        "phoneNumber",
+                                        "label"
+                                    ]
+                                }
+                            },
+                            "title": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "company": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "birthday": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "address": {
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    },
+                    "attachments": {
+                        "type": "object",
+                        "required": [
+                            "media",
+                            "docs",
+                            "links"
+                        ],
+                        "properties": {
+                            "media": {
+                                "type": "array",
+                                "items": {}
+                            },
+                            "docs": {
+                                "type": "array",
+                                "items": {}
+                            },
+                            "links": {
+                                "type": "array",
+                                "items": {}
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "about",
+                    "details",
+                    "attachments"
+                ]
+            },
+            "chat_profile": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "email": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "about": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "email",
+                    "avatar",
+                    "about"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+                        "name": "Brian Hughes",
+                        "email": "hughes.brian@company.com",
+                        "avatar": "assets/images/avatars/brian-hughes.jpg",
+                        "about": "Hi there! I'm using FuseChat."
+                    }
+                }
+            },
+            "academy_course": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "category": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "duration": {
+                        "type": "number"
+                    },
+                    "totalSteps": {
+                        "type": "number"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "featured": {
+                        "type": "boolean"
+                    },
+                    "progress": {
+                        "type": "object",
+                        "properties": {
+                            "currentStep": {
+                                "type": "number"
+                            },
+                            "completed": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "currentStep",
+                            "completed"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "slug",
+                    "description",
+                    "category",
+                    "duration",
+                    "totalSteps",
+                    "updatedAt",
+                    "featured",
+                    "progress"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "694e4e5f-f25f-470b-bd0e-26b1d4f64028",
+                        "title": "Basics of Angular",
+                        "slug": "basics-of-angular",
+                        "description": "Introductory course for Angular and framework basics",
+                        "category": "web",
+                        "duration": 30,
+                        "totalSteps": 11,
+                        "updatedAt": "Jun 28, 2021",
+                        "featured": true,
+                        "progress": {
+                            "currentStep": 3,
+                            "completed": 2
+                        }
+                    }
+                }
+            },
+            "academy_category": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "color": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "slug",
+                    "color"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "9a67dff7-3c38-4052-a335-0cef93438ff6",
+                        "title": "Web",
+                        "slug": "web",
+                        "color": "#2196f3"
+                    }
+                }
+            },
+            "ecommerce_order": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "1",
+                        "reference": "70d4d7d0",
+                        "subtotal": "39.97",
+                        "tax": "77.44",
+                        "discount": "-10.17",
+                        "total": "73.31",
+                        "date": "2015/04/25 02:07:59",
+                        "customer": {
+                            "id": 1,
+                            "firstName": "Dollie",
+                            "lastName": "Bullock",
+                            "avatar": "assets/images/avatars/Abbott.jpg",
+                            "company": "Saois",
+                            "jobTitle": "Digital Archivist",
+                            "email": "abbott@withinpixels.com",
+                            "phone": "+1-202-555-0175",
+                            "invoiceAddress": {
+                                "address": "704 6th Ave, New York, NY 10010, USA",
+                                "lat": 40.7424739,
+                                "lng": -73.99283919999999
+                            },
+                            "shippingAddress": {
+                                "address": "377 E South Omaha Bridge Rd, Council Bluffs, IA 51501, USA",
+                                "lat": 41.2183223,
+                                "lng": -95.8420876
+                            }
+                        },
+                        "products": [],
+                        "status": [
+                            {
+                                "id": 13,
+                                "name": "On pre-order (not paid)",
+                                "color": "purple-300",
+                                "date": "2016/04/03 10:06:18"
+                            },
+                            {
+                                "id": 1,
+                                "name": "Awaiting check payment",
+                                "color": "blue-500",
+                                "date": "2015/03/17 18:28:37"
+                            }
+                        ],
+                        "payment": {
+                            "transactionId": "2a894b9e",
+                            "amount": "73.31",
+                            "method": "Credit Card",
+                            "date": "2016/02/23 15:50:23"
+                        },
+                        "shippingDetails": [
+                            {
+                                "tracking": "",
+                                "carrier": "TNT",
+                                "weight": "10.44",
+                                "fee": "7.00",
+                                "date": "2015/04/10 07:03:52"
+                            }
+                        ]
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "reference": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "subtotal": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "tax": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "discount": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "total": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "date": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "customer": {
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "firstName",
+                            "lastName",
+                            "avatar",
+                            "company",
+                            "jobTitle",
+                            "email",
+                            "phone",
+                            "invoiceAddress",
+                            "shippingAddress"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "firstName": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "lastName": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "avatar": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "company": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "jobTitle": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "email": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "phone": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "invoiceAddress": {
+                                "type": "object",
+                                "required": [
+                                    "address",
+                                    "lat",
+                                    "lng"
+                                ],
+                                "properties": {
+                                    "address": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    },
+                                    "lat": {
+                                        "type": "number"
+                                    },
+                                    "lng": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            "shippingAddress": {
+                                "type": "object",
+                                "required": [
+                                    "address",
+                                    "lat",
+                                    "lng"
+                                ],
+                                "properties": {
+                                    "address": {
+                                        "type": "string",
+                                        "minLength": 1
+                                    },
+                                    "lat": {
+                                        "type": "number"
+                                    },
+                                    "lng": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "products": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "status": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "color": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "color",
+                                "date"
+                            ]
+                        }
+                    },
+                    "payment": {
+                        "type": "object",
+                        "required": [
+                            "transactionId",
+                            "amount",
+                            "method",
+                            "date"
+                        ],
+                        "properties": {
+                            "transactionId": {
+                                "type": "string"
+                            },
+                            "amount": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "method": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "date": {
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    },
+                    "shippingDetails": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "tracking": {
+                                    "type": "string"
+                                },
+                                "carrier": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "weight": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "fee": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "tracking",
+                                "carrier",
+                                "weight",
+                                "fee",
+                                "date"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "reference",
+                    "subtotal",
+                    "tax",
+                    "discount",
+                    "total",
+                    "date",
+                    "customer",
+                    "products",
+                    "status",
+                    "payment",
+                    "shippingDetails"
+                ]
+            },
+            "ecommerce_product": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "1",
+                        "name": "A Walk Amongst Friends - Canvas Print",
+                        "handle": "a-walk-amongst-friends-canvas-print",
+                        "description": "Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.",
+                        "categories": [
+                            "Canvas Print",
+                            "Nature"
+                        ],
+                        "tags": [
+                            "canvas-print",
+                            "nature"
+                        ],
+                        "featuredImageId": "1",
+                        "images": [],
+                        "priceTaxExcl": 9.309,
+                        "priceTaxIncl": 10.24,
+                        "taxRate": 10,
+                        "comparedPrice": 19.9,
+                        "quantity": 3,
+                        "sku": "A445BV",
+                        "width": "22cm",
+                        "height": "24cm",
+                        "depth": "15cm",
+                        "weight": "3kg",
+                        "extraShippingFee": 3,
+                        "active": true
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "handle": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "featuredImageId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "priceTaxExcl": {
+                        "type": "number"
+                    },
+                    "priceTaxIncl": {
+                        "type": "number"
+                    },
+                    "taxRate": {
+                        "type": "number"
+                    },
+                    "comparedPrice": {
+                        "type": "number"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "width": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "height": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "depth": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "weight": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "extraShippingFee": {
+                        "type": "number"
+                    },
+                    "active": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "handle",
+                    "description",
+                    "categories",
+                    "tags",
+                    "featuredImageId",
+                    "images",
+                    "priceTaxExcl",
+                    "priceTaxIncl",
+                    "taxRate",
+                    "comparedPrice",
+                    "quantity",
+                    "sku",
+                    "width",
+                    "height",
+                    "depth",
+                    "weight",
+                    "extraShippingFee",
+                    "active"
+                ]
+            },
+            "file_manager_item": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "folderId": {},
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "modifiedAt": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "size": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "contents": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "createdBy",
+                    "createdAt",
+                    "modifiedAt",
+                    "size",
+                    "type",
+                    "contents",
+                    "description"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+                        "folderId": null,
+                        "name": "Personal",
+                        "createdBy": "Brian Hughes",
+                        "createdAt": "April 24, 2018",
+                        "modifiedAt": "April 24, 2018",
+                        "size": "87 MB",
+                        "type": "folder",
+                        "contents": "57 files",
+                        "description": "Personal documents such as insurance policies, tax papers and etc."
+                    }
+                }
+            },
+            "help_center_guide": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "categoryId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "subtitle": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "categoryId",
+                    "slug",
+                    "title",
+                    "subtitle"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "a008ffa3-7b3f-43be-8a8f-dbf5272ed2dd",
+                        "categoryId": "0ee72de7-49c0-4880-9e89-b72a4edd6a81",
+                        "slug": "what-is-this-app",
+                        "title": "What is this app?",
+                        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+                    }
+                }
+            },
+            "help_center_faq": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "categoryId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "question": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "answer": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "categoryId",
+                    "question",
+                    "answer"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "f65d517a-6f69-4c88-81f5-416f47405ce1",
+                        "categoryId": "28924eab-97cc-465a-ba21-f232bb95843f",
+                        "question": "Is there a 14-days trial?",
+                        "answer": "Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit."
+                    }
+                }
+            },
+            "help_center_faq_category": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "slug",
+                    "title"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "28924eab-97cc-465a-ba21-f232bb95843f",
+                        "slug": "most-asked",
+                        "title": "Most asked"
+                    }
+                }
+            },
+            "help_center_guide_category": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "slug",
+                    "title"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "0ee72de7-49c0-4880-9e89-b72a4edd6a81",
+                        "slug": "getting-started",
+                        "title": "Getting Started"
+                    }
+                }
+            },
+            "notes_label": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "title"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "f47c92e5-20b9-44d9-917f-9ff4ad25dfd0",
+                        "title": "Family"
+                    }
+                }
+            },
+            "notes_note": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "8f011ac5-b71c-4cd7-a317-857dcd7d85e0",
+                        "title": "",
+                        "content": "Find a new company name",
+                        "tasks": null,
+                        "image": null,
+                        "reminder": null,
+                        "labels": [
+                            "e2f749f5-41ed-49d0-a92a-1c83d879e371"
+                        ],
+                        "archived": false,
+                        "createdAt": "2022-10-13T07:19:08.245Z",
+                        "updatedAt": null
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "tasks": {},
+                    "image": {},
+                    "reminder": {},
+                    "labels": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "archived": {
+                        "type": "boolean"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "updatedAt": {}
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "content",
+                    "labels",
+                    "archived",
+                    "createdAt"
+                ]
+            },
+            "scrumboard_board": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "2c82225f-2a6c-45d3-b18a-1132712a4234",
+                        "title": "Admin Dashboard",
+                        "description": "Roadmap for the new project",
+                        "icon": "heroicons-outline:template",
+                        "lastActivity": "2022-01-18T21:00:00.000Z",
+                        "members": [
+                            "319ecb5b-f99c-4ee4-81b2-3aeffd1d4735",
+                            "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
+                            "23a47d2c-c6cb-40cc-af87-e946a9df5028",
+                            "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+                            "6f6a1c34-390b-4b2e-97c8-ff0e0d787839"
+                        ],
+                        "settings": {
+                            "subscribed": true,
+                            "cardCoverImages": true
+                        },
+                        "lists": [
+                            {
+                                "id": "a2df7786-519c-485a-a85f-c09a61cc5f37",
+                                "cards": [
+                                    "ed58add1-45a7-41db-887d-3ca7ee7f2719",
+                                    "e74e66e9-fe0f-441e-a8ce-28ed6eccc48d",
+                                    "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+                                    "6da8747f-b474-4c9a-9eba-5ef212285500"
+                                ]
+                            },
+                            {
+                                "id": "83ca2a34-65af-49c0-a42e-94a34003fcf2",
+                                "cards": [
+                                    "94fb1dee-dd83-4cca-acdd-02e96d3cc4f1",
+                                    "fc16f7d8-957d-43ed-ba85-20f99b5ce011",
+                                    "cd7f01c5-a941-4076-8cef-37da0354e643"
+                                ]
+                            },
+                            {
+                                "id": "a85ea483-f8f7-42d9-a314-3fed6aac22ab",
+                                "cards": [
+                                    "c0b32f1f-64ec-4f8d-8b11-a8dc809df331"
+                                ]
+                            },
+                            {
+                                "id": "34cbef38-5687-4813-bd66-141a6df6d832",
+                                "cards": [
+                                    "532c2747-be79-464a-9897-6a682bf22b64",
+                                    "1d908efe-c830-476e-9e87-d06e30d89bc2",
+                                    "b1da11ed-7896-4826-962d-4b7b718896d4",
+                                    "3b7f3ceb-107f-42bc-a204-c268c9a56cb4"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "icon": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "lastActivity": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "settings": {
+                        "type": "object",
+                        "required": [
+                            "subscribed",
+                            "cardCoverImages"
+                        ],
+                        "properties": {
+                            "subscribed": {
+                                "type": "boolean"
+                            },
+                            "cardCoverImages": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "lists": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "cards": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "description",
+                    "icon",
+                    "lastActivity",
+                    "members",
+                    "settings",
+                    "lists"
+                ],
+                "title": ""
+            },
+            "scrumboard_card": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "ed58add1-45a7-41db-887d-3ca7ee7f2719",
+                        "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
+                        "listId": "a2df7786-519c-485a-a85f-c09a61cc5f37",
+                        "title": "Do a research about most needed admin applications",
+                        "description": "Current application doesn't support Node.js 7 and above.",
+                        "labels": [
+                            "e0175175-2784-48f1-a519-a1d2e397c9b3"
+                        ],
+                        "dueDate": 1643026537,
+                        "attachmentCoverId": "67027cahbe3b52ecf2dc631c",
+                        "memberIds": [
+                            "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
+                            "d1f612e6-3e3b-481f-a8a9-f917e243b06e",
+                            "fe0fec0d-002b-406f-87ab-47eb87ba577c",
+                            "23a47d2c-c6cb-40cc-af87-e946a9df5028",
+                            "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+                            "0d1eb062-13d5-4286-b8d4-e0bea15f3d56"
+                        ],
+                        "attachments": [
+                            {
+                                "id": "67027cahbe3b52ecf2dc631c",
+                                "name": "mail.jpg",
+                                "src": "assets/images/apps/scrumboard/mail.jpg",
+                                "time": 1642766617,
+                                "type": "image"
+                            },
+                            {
+                                "id": "56027cfcbe1b72ecf1fc452a",
+                                "name": "calendar.jpg",
+                                "src": "assets/images/apps/scrumboard/calendar.jpg",
+                                "time": 1642766617,
+                                "type": "image"
+                            }
+                        ],
+                        "subscribed": true,
+                        "checklists": [
+                            {
+                                "id": "63021cfdbe1x72wcf1fc451v",
+                                "name": "Checklist",
+                                "checkItems": [
+                                    {
+                                        "id": 1,
+                                        "name": "Implement a calendar library",
+                                        "checked": false
+                                    },
+                                    {
+                                        "id": 2,
+                                        "name": "Replace event colors with Material Design colors",
+                                        "checked": true
+                                    },
+                                    {
+                                        "id": 3,
+                                        "name": "Replace icons with Material Design icons",
+                                        "checked": false
+                                    },
+                                    {
+                                        "id": 4,
+                                        "name": "Use date-fns",
+                                        "checked": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Checklist 2",
+                                "id": "74031cfdbe1x72wcz1dc166z",
+                                "checkItems": [
+                                    {
+                                        "id": 1,
+                                        "name": "Replace event colors with Material Design colors",
+                                        "checked": true
+                                    },
+                                    {
+                                        "id": 2,
+                                        "name": "Replace icons with Material Design icons",
+                                        "checked": false
+                                    },
+                                    {
+                                        "id": 3,
+                                        "name": "Use date-fns",
+                                        "checked": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "activities": [
+                            {
+                                "id": 1,
+                                "type": "comment",
+                                "idMember": "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+                                "message": "AngularCLI could be a nice alternative.",
+                                "time": 1642766617
+                            }
+                        ]
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "boardId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "listId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "dueDate": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "attachmentCoverId": {
+                        "type": "string"
+                    },
+                    "memberIds": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "attachments": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "src": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "time": {
+                                    "type": "number"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "minLength": 1
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "src",
+                                "time",
+                                "type"
+                            ]
+                        }
+                    },
+                    "subscribed": {
+                        "type": "boolean"
+                    },
+                    "checklists": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "checkItems": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "minLength": 1
+                                            },
+                                            "checked": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "name",
+                                            "checked"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name"
+                            ]
+                        }
+                    },
+                    "activities": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "idMember": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "time": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "type",
+                                "idMember",
+                                "message",
+                                "time"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "boardId",
+                    "listId",
+                    "title",
+                    "description",
+                    "labels",
+                    "attachmentCoverId",
+                    "memberIds",
+                    "attachments",
+                    "subscribed",
+                    "checklists",
+                    "activities"
+                ]
+            },
+            "scrumboard_label": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "boardId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "boardId",
+                    "title"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "e0175175-2784-48f1-a519-a1d2e397c9b3",
+                        "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
+                        "title": "Research"
+                    }
+                }
+            },
+            "scrumboard_member": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "avatar"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "6f6a1c34-390b-4b2e-97c8-ff0e0d787839",
+                        "name": "Angeline Vinson",
+                        "avatar": "assets/images/avatars/female-01.jpg"
+                    }
+                }
+            },
+            "scrumboard_list": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "boardId": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "boardId",
+                    "title"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "a2df7786-519c-485a-a85f-c09a61cc5f37",
+                        "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
+                        "title": "To do"
+                    }
+                }
+            },
+            "mailbox_mail": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": "f9c4c091-3ac4-4df9-ac5d-aec7b07c8e3f",
+                        "type": "mail",
+                        "from": {
+                            "avatar": "assets/images/avatars/female-01.jpg",
+                            "contact": "Myra Dudley <myra.dudley@company.com>"
+                        },
+                        "to": "me <hughes.brian@company.com>",
+                        "cc": [
+                            "Graham Belltower <graham.belltower@company.com>"
+                        ],
+                        "bcc": [
+                            "Julie T. <julie.t@company.com>"
+                        ],
+                        "date": "2022-01-25T17:13:22.073Z",
+                        "subject": "Please review and sign the attached agreement",
+                        "content": "Hi Brian,\n\nUllamco deserunt commodo esse deserunt deserunt quis eiusmod. Laborum sint excepteur non sit eiusmod sunt voluptate ipsum nisi ullamco magna. Lorem consectetur est dolor minim exercitation deserunt quis duis fugiat ipsum incididunt non. Anim aute ipsum cupidatat nisi occaecat quis sit nisi labore labore dolore do. Pariatur veniam culpa quis veniam nisi exercitation veniam ut. Quis do sint proident fugiat ad.\n\nNon id nisi commodo veniam. Veniam veniam minim ea laborum voluptate id duis deserunt. Anim ut ut amet et ullamco nulla fugiat id incididunt adipisicing excepteur amet. Ex amet eu cillum non fugiat velit dolore. Incididunt duis est eu et ex sunt consectetur cillum nisi aute proident.\n\nIncididunt excepteur laborum quis sit. Ex quis officia incididunt proident aliqua adipisicing. Irure ad in Lorem laborum deserunt nulla consequat. Pariatur excepteur exercitation cupidatat aute.\n\nCheers!\nMyra Dudley",
+                        "attachments": [
+                            {
+                                "type": "image/jpeg",
+                                "name": "mystery-forest.jpg",
+                                "size": 15539,
+                                "preview": "mystery-forest_preview.jpg",
+                                "downloadUrl": ""
+                            },
+                            {
+                                "type": "application/pdf",
+                                "name": "montly-invoice.pdf",
+                                "size": 243449,
+                                "preview": "pdf",
+                                "downloadUrl": ""
+                            },
+                            {
+                                "type": "image/jpeg",
+                                "name": "birds-eye-sydney.jpg",
+                                "size": 14294,
+                                "preview": "birds-eye-sydney_preview.jpg",
+                                "downloadUrl": ""
+                            }
+                        ],
+                        "starred": true,
+                        "important": true,
+                        "unread": true,
+                        "folder": "7c004a19-4506-48ef-93ab-f16381302e3b",
+                        "labels": [
+                            "b167d3c4-f6ed-4ea6-9579-a12f95a9d76e",
+                            "745cf30e-ca84-47a1-a553-b70eb630d8e7",
+                            "8b035cb5-65c0-4ab1-bb4c-43b0e442d1f3"
+                        ]
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "type": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "from": {
+                        "type": "object",
+                        "required": [
+                            "avatar",
+                            "contact"
+                        ],
+                        "properties": {
+                            "avatar": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "contact": {
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    },
+                    "to": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "cc": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "bcc": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "date": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "subject": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "content": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "attachments": {
+                        "type": "array",
+                        "uniqueItems": false,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "size": {
+                                    "type": "number"
+                                },
+                                "preview": {
+                                    "type": "string",
+                                    "minLength": 1
+                                },
+                                "downloadUrl": {
+                                    "type": "string"
+                                },
+                                "": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "type",
+                                "name",
+                                "size",
+                                "preview",
+                                "downloadUrl"
+                            ]
+                        }
+                    },
+                    "starred": {
+                        "type": "boolean"
+                    },
+                    "important": {
+                        "type": "boolean"
+                    },
+                    "unread": {
+                        "type": "boolean"
+                    },
+                    "folder": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": {}
+                    }
+                },
+                "required": [
+                    "id",
+                    "type",
+                    "from",
+                    "to",
+                    "date",
+                    "subject",
+                    "content",
+                    "attachments",
+                    "starred",
+                    "important",
+                    "unread",
+                    "folder",
+                    "labels"
+                ]
+            },
+            "mailbox_filter": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "icon": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "slug",
+                    "icon"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "de1b41f6-6839-4f1b-9d2c-07e55f6f8f82",
+                        "title": "Starred",
+                        "slug": "starred",
+                        "icon": "heroicons-outline:star"
+                    }
+                }
+            },
+            "mailbox_folder": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "slug": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "icon": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "slug",
+                    "icon"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "7c004a19-4506-48ef-93ab-f16381302e3b",
+                        "title": "Inbox",
+                        "slug": "inbox",
+                        "icon": "heroicons-outline:inbox"
+                    }
+                }
+            },
+            "calendar_label": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "color": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "color"
+                ],
+                "x-examples": {
+                    "example-1": {
+                        "id": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc",
+                        "title": "Personal",
+                        "color": "bg-teal-500"
+                    }
+                }
+            },
+            "mailbox_label": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "color": {
+                        "type": "string"
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "id": "b67fc437-6118-4ec8-a3c7-9320b828e3fc",
+                        "title": "Forums",
+                        "slug": "forums",
+                        "color": "green"
+                    }
+                }
+            },
+            "mailbox_action": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "type": "mark-as-unread",
+                        "ids": [
+                            1,
+                            2,
+                            3
+                        ]
+                    }
+                },
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "value": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "type",
+                    "value",
+                    "ids"
+                ]
+            },
+            "calendar_event": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                    "example-1": {
+                        "id": 0,
+                        "title": "All Day Event very long title",
+                        "allDay": true,
+                        "start": "2022-04-01T00:00:00+03:00",
+                        "end": "2022-04-02T00:00:00+03:00",
+                        "extendedProps": {
+                            "desc": "Big conference for important people",
+                            "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+                        }
+                    }
+                },
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "allDay": {
+                        "type": "boolean"
+                    },
+                    "start": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "end": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "extendedProps": {
+                        "type": "object",
+                        "required": [
+                            "desc",
+                            "label"
+                        ],
+                        "properties": {
+                            "desc": {
+                                "type": "string",
+                                "minLength": 0
+                            },
+                            "label": {
+                                "type": "string",
+                                "minLength": 1
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "allDay",
+                    "start",
+                    "end",
+                    "extendedProps"
+                ]
+            },
+            "notification": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "icon": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "time": {
+                        "type": "string"
+                    },
+                    "read": {
+                        "type": "boolean"
+                    },
+                    "link": {
+                        "type": "string"
+                    },
+                    "useRouter": {
+                        "type": "boolean"
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "id": "8f8e1bf9-4661-4939-9e43-390957b60f42",
+                        "icon": "heroicons-solid:star",
+                        "title": "Daily challenges",
+                        "description": "Your submission has been accepted and you are ready to sign-up for the final assigment which will be ready in 2 days",
+                        "time": "2022-05-06T10:57:42.703Z",
+                        "read": true,
+                        "link": "/dashboards/project",
+                        "useRouter": true
+                    }
+                },
+                "title": ""
+            },
+            "auth_user": {
+                "type": "object",
+                "properties": {
+                    "uuid": {
+                        "type": "string"
+                    },
+                    "from": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object",
+                        "properties": {
+                            "displayName": {
+                                "type": "string"
+                            },
+                            "photoURL": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "settings": {
+                                "type": "object",
+                                "properties": {
+                                    "layout": {
+                                        "type": "object",
+                                        "properties": {}
+                                    },
+                                    "theme": {
+                                        "type": "object",
+                                        "properties": {}
+                                    }
+                                }
+                            },
+                            "shortcuts": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "uuid": "XgbuVEXBU5gtSKdbQRP1Zbbby1i1",
+                        "from": "custom-db",
+                        "password": "admin",
+                        "role": "admin",
+                        "data": {
+                            "displayName": "Abbott Keitch",
+                            "photoURL": "assets/images/avatars/brian-hughes.jpg",
+                            "email": "admin@fusetheme.com",
+                            "settings": {
+                                "layout": {},
+                                "theme": {}
+                            },
+                            "shortcuts": [
+                                "apps.calendar",
+                                "apps.mailbox",
+                                "apps.contacts"
+                            ]
+                        }
+                    }
+                }
+            },
+            "profile_photos_videos": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "info": {
+                        "type": "string"
+                    },
+                    "media": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "preview": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "id": "1",
+                        "name": "June 2018",
+                        "info": "5 Photos",
+                        "media": [
+                            {
+                                "type": "photo",
+                                "title": "A Walk Amongst Friends",
+                                "preview": "assets/images/apps/profile/a-walk-amongst-friends-small.jpg"
+                            },
+                            {
+                                "type": "photo",
+                                "title": "Braies Lake",
+                                "preview": "assets/images/apps/profile/braies-lake-small.jpg"
+                            },
+                            {
+                                "type": "photo",
+                                "title": "Fall Glow",
+                                "preview": "assets/images/apps/profile/fall-glow-small.jpg"
+                            },
+                            {
+                                "type": "photo",
+                                "title": "First Snow",
+                                "preview": "assets/images/apps/profile/first-snow-small.jpg"
+                            },
+                            {
+                                "type": "photo",
+                                "title": "Lago di Braies",
+                                "preview": "assets/images/apps/profile/lago-di-braies-small.jpg"
+                            }
+                        ]
+                    }
+                }
+            },
+            "profile_timeline": {
+                "type": "object",
+                "properties": {
+                    "activities": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "user": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "avatar": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "time": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "posts": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "user": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "avatar": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "time": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "like": {
+                                    "type": "integer"
+                                },
+                                "share": {
+                                    "type": "integer"
+                                },
+                                "media": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "preview": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "comments": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "avatar": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "time": {
+                                                "type": "string"
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "article": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "subtitle": {
+                                            "type": "string"
+                                        },
+                                        "excerpt": {
+                                            "type": "string"
+                                        },
+                                        "media": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "preview": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "activities": [
+                            {
+                                "id": "1",
+                                "user": {
+                                    "name": "Bernard Langley",
+                                    "avatar": "assets/images/avatars/male-02.jpg"
+                                },
+                                "message": "started following you.",
+                                "time": "13 mins. ago"
+                            },
+                            {
+                                "id": "2",
+                                "user": {
+                                    "name": "Mclaughlin Steele",
+                                    "avatar": "assets/images/avatars/male-03.jpg"
+                                },
+                                "message": "sent you a message.",
+                                "time": "June 10,2015"
+                            },
+                            {
+                                "id": "3",
+                                "user": {
+                                    "name": "Garry Newman",
+                                    "avatar": "assets/images/avatars/male-04.jpg"
+                                },
+                                "message": "shared a public post with your group.",
+                                "time": "June 9,2015"
+                            },
+                            {
+                                "id": "4",
+                                "user": {
+                                    "name": "Carl Henderson",
+                                    "avatar": "assets/images/avatars/male-05.jpg"
+                                },
+                                "message": "wants to play Fallout Shelter with you.",
+                                "time": "June 8,2015"
+                            },
+                            {
+                                "id": "5",
+                                "user": {
+                                    "name": "Jane Dean",
+                                    "avatar": "assets/images/avatars/female-05.jpg"
+                                },
+                                "message": "started following you.",
+                                "time": "June 7,2015"
+                            },
+                            {
+                                "id": "6",
+                                "user": {
+                                    "name": "Juan Carpenter",
+                                    "avatar": "assets/images/avatars/male-07.jpg"
+                                },
+                                "message": "sent you a message.",
+                                "time": "June 6,2015"
+                            },
+                            {
+                                "id": "7",
+                                "user": {
+                                    "name": "Judith Burton",
+                                    "avatar": "assets/images/avatars/female-06.jpg"
+                                },
+                                "message": "shared a photo with you.",
+                                "time": "June 5,2015"
+                            },
+                            {
+                                "id": "8",
+                                "user": {
+                                    "name": "Vincent Munoz",
+                                    "avatar": "assets/images/avatars/male-08.jpg"
+                                },
+                                "message": "shared a photo with you.",
+                                "time": "June 4,2015"
+                            }
+                        ],
+                        "posts": [
+                            {
+                                "id": "1",
+                                "user": {
+                                    "name": "Garry Newman",
+                                    "avatar": "assets/images/avatars/male-09.jpg"
+                                },
+                                "message": "Remember the place we were talking about the other night? Found it!",
+                                "time": "32 minutes ago",
+                                "type": "post",
+                                "like": 5,
+                                "share": 21,
+                                "media": {
+                                    "type": "image",
+                                    "preview": "assets/images/cards/14-640x480.jpg"
+                                },
+                                "comments": [
+                                    {
+                                        "id": "1",
+                                        "user": {
+                                            "name": "Alice Freeman",
+                                            "avatar": "assets/images/avatars/female-07.jpg"
+                                        },
+                                        "time": "June 10, 2015",
+                                        "message": "That’s a wonderful place. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "2",
+                                "user": {
+                                    "name": "Andrew Green",
+                                    "avatar": "assets/images/avatars/male-11.jpg"
+                                },
+                                "message": "Hey, man! Check this, it’s pretty awesome!",
+                                "time": "June 12, 2015",
+                                "type": "article",
+                                "like": 98,
+                                "share": 6,
+                                "article": {
+                                    "title": "Never stop changing!",
+                                    "subtitle": "John Westrock",
+                                    "excerpt": "John Westrock's new photo album called 'Never stop changing' is published! It features more than 200 photos that will take you right in.",
+                                    "media": {
+                                        "type": "image",
+                                        "preview": "assets/images/cards/36-640x480.jpg"
+                                    }
+                                },
+                                "comments": [
+                                    {
+                                        "id": "1",
+                                        "user": {
+                                            "name": "Alice Freeman",
+                                            "avatar": "assets/images/avatars/female-09.jpg"
+                                        },
+                                        "time": "June 10, 2015",
+                                        "message": "That’s a wonderful place. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat."
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "3",
+                                "user": {
+                                    "name": "Carl Henderson",
+                                    "avatar": "assets/images/avatars/male-12.jpg"
+                                },
+                                "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et eleifend ligula. Fusce posuere in sapien ac facilisis. Etiam sit amet justo non felis ornare feugiat. Aenean lorem ex, ultrices sit amet ligula sed...",
+                                "time": "June 10, 2015",
+                                "type": "something",
+                                "like": 4,
+                                "share": 1
+                            }
+                        ]
+                    }
+                }
+            },
+            "profile_about": {
+                "type": "object",
+                "properties": {
+                    "general": {
+                        "type": "object",
+                        "properties": {
+                            "gender": {
+                                "type": "string"
+                            },
+                            "birthday": {
+                                "type": "string"
+                            },
+                            "locations": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "about": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "work": {
+                        "type": "object",
+                        "properties": {
+                            "occupation": {
+                                "type": "string"
+                            },
+                            "skills": {
+                                "type": "string"
+                            },
+                            "jobs": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "company": {
+                                            "type": "string"
+                                        },
+                                        "date": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "contact": {
+                        "type": "object",
+                        "properties": {
+                            "address": {
+                                "type": "string"
+                            },
+                            "tel": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "websites": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "emails": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "category": {
+                                    "type": "string"
+                                },
+                                "members": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "friends": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "avatar": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-examples": {
+                    "example-1": {
+                        "general": {
+                            "gender": "Male",
+                            "birthday": "February 30th, 1974",
+                            "locations": [
+                                "London, UK",
+                                "New York, USA"
+                            ],
+                            "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget pharetra felis, sed ullamcorper dui. Sed et elementum neque. Vestibulum pellente viverra ultrices. Etiam justo augue, vehicula ac gravida a, interdum sit amet nisl. Integer vitae nisi id nibh dictum mollis in vitae tortor."
+                        },
+                        "work": {
+                            "occupation": "Developer",
+                            "skills": "C#, PHP, Javascript, Angular, JS, HTML, CSS",
+                            "jobs": [
+                                {
+                                    "company": "Self-Employed",
+                                    "date": "2010 - Now"
+                                },
+                                {
+                                    "company": "Google",
+                                    "date": "2008 - 2010"
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "address": "Ut pharetra luctus est quis sodales. Duis nisi tortor, bibendum eget tincidunt, aliquam ac elit. Mauris nec euismod odio.",
+                            "tel": [
+                                "+6 555 6600",
+                                "+9 555 5255"
+                            ],
+                            "websites": [
+                                "withinpixels.com"
+                            ],
+                            "emails": [
+                                "mail@withinpixels.com",
+                                "mail@creapond.com"
+                            ]
+                        },
+                        "groups": [
+                            {
+                                "id": "1",
+                                "name": "Android",
+                                "category": "Technology",
+                                "members": "1.856.546"
+                            },
+                            {
+                                "id": "2",
+                                "name": "Google",
+                                "category": "Web",
+                                "members": "1.226.121"
+                            },
+                            {
+                                "id": "3",
+                                "name": "Fallout",
+                                "category": "Games",
+                                "members": "526.142"
+                            }
+                        ],
+                        "friends": [
+                            {
+                                "id": "1",
+                                "name": "Garry Newman",
+                                "avatar": "assets/images/avatars/male-11.jpg"
+                            },
+                            {
+                                "id": "2",
+                                "name": "Carl Henderson",
+                                "avatar": "assets/images/avatars/male-12.jpg"
+                            },
+                            {
+                                "id": "3",
+                                "name": "Jane Dean",
+                                "avatar": "assets/images/avatars/female-11.jpg"
+                            },
+                            {
+                                "id": "4",
+                                "name": "Garry Arnold",
+                                "avatar": "assets/images/avatars/male-13.jpg"
+                            },
+                            {
+                                "id": "5",
+                                "name": "Vincent Munoz",
+                                "avatar": "assets/images/avatars/male-14.jpg"
+                            },
+                            {
+                                "id": "6",
+                                "name": "Alice Freeman",
+                                "avatar": "assets/images/avatars/female-12.jpg"
+                            },
+                            {
+                                "id": "7",
+                                "name": "Andrew Green",
+                                "avatar": "assets/images/avatars/male-16.jpg"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "securitySchemes": {},
+        "examples": {
+            "auth_users": {
+                "value": [
+                    {
+                        "uuid": "XgbuVEXBU5gtSKdbQRP1Zbbby1i1",
+                        "from": "custom-db",
+                        "password": "admin",
+                        "role": "admin",
+                        "data": {
+                            "displayName": "Furkan Arslan",
+                            "email": "bm.furkanarslan@gmail.com"
+                        }
+                    }
+                ]
+            }
+        },
+        "responses": {}
+    },
+    "tags": [
+        {
+            "name": "auth",
+            "description": "Authentication"
+        }
+    ]
+}
